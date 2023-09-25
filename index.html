@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gone With The Wind Movie</title>
+</head>
+<body>
+    <h1>Gone With The Wind Movie</h1>
+    
+    <!-- A placeholder for displaying the movie info -->
+    <div id="movieInfo"></div>
+
+    <!-- A placeholder for displaying the leading role -->
+    <div id="leadingRole"></div>
+
+    <!-- A placeholder for displaying the role with most votes -->
+    <div id="mostVotedRole"></div>
+
+    <!-- A placeholder for displaying profits -->
+    <div id="profits"></div>
+
+    <script>
+        let movie = {
+            title: "Gone With The Wind",
+            year: 1939,
+            actressLead: "Vivien Leigh",
+            actorLead: "Clark Gable",
+            genre: "Epic",
+            academyAwards: 8,
+            leadingRole: function (actor) {
+                return this[actor];
+            },
+            formatInfo: function () {
+                return `${this.title} was released in ${this.year}. It tells the story of the civil war in the US.`;
+            },
+            quote: "Frankly My Dear, I don't give a damn"
+        };
+
+        // Add the profits attribute
+        movie.profits = {
+            yearOfRelease: 10,
+            subsequentToDate: 40
+        };
+
+        // Display movie info
+        let movieInfo = document.getElementById("movieInfo");
+        movieInfo.textContent = `Movie Title: ${movie.title}\nYear: ${movie.year}\nGenre: ${movie.genre}\nAcademy Awards: ${movie.academyAwards}`;
+
+        // Display leading role
+        let leadingRole = document.getElementById("leadingRole");
+        leadingRole.textContent = `Leading Role: ${movie.leadingRole("actorLead")}`;
+
+        // Display the role with the most votes
+        let mostVotedRole = document.getElementById("mostVotedRole");
+        let roleWithMostVotes = "actorLead";
+        mostVotedRole.textContent = `Role with Most Votes: ${movie.leadingRole(roleWithMostVotes)}`;
+
+        // Display profits
+        let profits = document.getElementById("profits");
+        profits.textContent = `Profits the Year of Release: ${movie.profits.yearOfRelease}`;
+    </script>
+</body>
+</html>
